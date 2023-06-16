@@ -24,10 +24,6 @@ h1 {
   line-height: 1.1;
 }
 
-a:hover, a:active, a:focus {
-  text-decoration: underline;
-}
-
 a {
   color: #FF6060;
   text-decoration: none;
