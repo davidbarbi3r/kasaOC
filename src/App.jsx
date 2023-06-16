@@ -4,6 +4,7 @@ import Layout from './Layout/Layout'
 import Home from './Home/Home'
 import About from './About/About'
 import NoMatch from './NoMatch/NoMatch'
+import Accomodation from './Accomodation/Accomodation'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}/>
+          <Route path='/:id' element={<Accomodation/>}/>
           <Route path='a-propos' element={<About/>}/>
           <Route path="*" element={<NoMatch />} />
         </Route>
