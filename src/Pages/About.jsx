@@ -1,7 +1,7 @@
 import './About.css'
 import React from 'react'
 import HeroBanner from '../Components/HeroBanner'
-import Dropdown from './Dropdown'
+import Dropdown from '../Components/Dropdown'
 
 export default function About() {
   const dropdownText = [

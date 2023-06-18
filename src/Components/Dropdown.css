@@ -23,6 +23,18 @@
     text-align: left;
     background-color: #f6f6f6;
     color: #FF6060;
+    display: block;
+}
+
+.dropdown-container ul {
+    background-color: #f6f6f6;
+    list-style-type: none;
+    margin: 0;
+    padding: 16px;
+}
+
+.dropdown-container>ul>p {
+    padding: 0;
 }
 
 .rotate {

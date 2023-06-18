@@ -1,10 +1,10 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './Layout/Layout'
-import Home from './Home/Home'
-import About from './About/About'
-import NoMatch from './NoMatch/NoMatch'
-import Accomodation from './Accomodation/Accomodation'
+import Home from './Pages/Home'
+import About from './Pages/About'
+import NoMatch from './Pages/NoMatch'
+import Accomodation from './Pages/Accomodation'
 
 function App() {
 
