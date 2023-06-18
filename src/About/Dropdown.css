@@ -3,18 +3,34 @@
     background-color: #FF6060;
     color: white;
     border-radius: 5px;
+    margin: 16px 0;
 }
 
 .dropdown-container h3 {
+    padding: 8px;
     text-align: left;
+    margin: 0;
 }
 
 .dropdown-container img {
+    margin-top: 6px;
     float: right;
 }
 
 .dropdown-container p {
+    padding: 16px;
+    margin: 0;
     text-align: left;
     background-color: #f6f6f6;
     color: #FF6060;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width: 600px) {
+    .dropdown-container {
+        width: 100%;
+    }
 }
