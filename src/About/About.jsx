@@ -1,3 +1,4 @@
+import './About.css'
 import React from 'react'
 import HeroBanner from '../Components/HeroBanner'
 import Dropdown from './Dropdown'
@@ -23,14 +24,16 @@ export default function About() {
   ] 
   
   return (
-    <div>
+    <div className='about'>
        <HeroBanner 
             text=''
             about={true}
         />
-        {dropdownText.map((dropdown, index) => 
-            <Dropdown text={dropdown.text} title={dropdown.title} key={index} />
-        )}
+        <div className='dropdown-items'>
+          {dropdownText.map((dropdown, index) => 
+              <Dropdown text={dropdown.text} title={dropdown.title} key={index} />
+          )}
+        </div>
     </div>
   )
 }
