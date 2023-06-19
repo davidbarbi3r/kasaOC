@@ -1,0 +1,56 @@
+.carroussel-container {
+    max-height: 415px;
+}
+
+.carroussel {
+    position: relative;
+    max-height: 415px;
+    height: 100%;
+  }
+
+.carroussel-item img {
+    width: 100%;
+    max-height: 415px;
+    height: 415px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.left-arrow img {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 45%;
+    left: 0;
+    transform: rotate(90deg);
+    z-index: 1;
+}
+
+.right-arrow img {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 45%;
+    right: 0;
+    transform: rotate(-90deg);
+    z-index: 1;
+}
+
+.carroussel button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .left-arrow img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .right-arrow img {
+        height: 40px;
+        width: 40px;
+    }
+}
