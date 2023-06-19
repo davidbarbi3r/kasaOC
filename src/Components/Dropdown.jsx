@@ -8,7 +8,7 @@ function Dropdown (props) {
         <div className='dropdown-container' onClick={() => setOpen((prev) => !prev)}>
             <h3>
                 {props.title}
-                <img src="/src/assets/arrow.svg" alt="arrow" className={open ? "rotate" : ""}/>
+                <img src="/arrow.svg" alt="arrow" className={open ? "rotate" : ""}/>
             </h3>
             {open && props.isEquipments ?
                 <ul className='dropdown-content'>

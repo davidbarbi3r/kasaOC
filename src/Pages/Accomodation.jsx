@@ -15,10 +15,9 @@ export default function Accomodation() {
   }
 
   const rating = new Array(5)
-  .fill(<img src='/src/assets/full-star.svg'/>, 0, currentAccomodation.rating)
-  .fill(<img src='/src/assets/empty-star.svg'/>, currentAccomodation.rating, 5)
+  .fill(<img src='/full-star.svg'/>, 0, currentAccomodation.rating)
+  .fill(<img src='/empty-star.svg'/>, currentAccomodation.rating, 5)
 
-  console.log(rating)
   return (
     <div className='accomodation-container'>
       <Carroussel images={currentAccomodation.pictures}/>

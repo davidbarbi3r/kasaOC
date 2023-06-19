@@ -9,10 +9,10 @@ export default function Navbar () {
       <div className="navbar-container">
         <Link to="/">
           <div className="navbar-logo">
-            <img src="/src/assets/logo-K.svg" />
-            <img src="/src/assets/logo-home.svg" />
-            <img src="/src/assets/logo-S.svg" />
-            <img src="/src/assets/logo-A.svg" />
+            <img src="/logo-K.svg" />
+            <img src="/logo-home.svg" />
+            <img src="/logo-S.svg" />
+            <img src="/logo-A.svg" />
           </div>
         </Link>
         <ul>
