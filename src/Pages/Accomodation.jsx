@@ -3,6 +3,7 @@ import data from "../assets/data.json"
 import { useLocation } from 'react-router-dom'
 import NoMatch from '../Pages/NoMatch'
 import Dropdown from '../Components/Dropdown'
+import Carroussel from '../Components/Carroussel'
 
 export default function Accomodation() {
   const {pathname} = useLocation()
@@ -19,9 +20,7 @@ export default function Accomodation() {
   console.log(rating)
   return (
     <div className='accomodation-container'>
-      <div className='accomodation-cover'>
-        Carrousel
-      </div>
+      <Carroussel images={currentAccomodation.pictures}/>
       <div>
         <div>
           <h1>{currentAccomodation.title}</h1>
