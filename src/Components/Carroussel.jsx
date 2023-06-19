@@ -36,13 +36,13 @@ function Carroussel(props) {
               className="left-arrow"
               onClick={() => handleLeftArrowClick()}
             >
-              <img src="public/arrow.svg" alt="left-arrow" />
+              <img src="/arrow.svg" alt="left-arrow" />
             </button>
             <button
               className="right-arrow"
               onClick={() => handleRightArrowClick()}
             >
-              <img src="public/arrow.svg" alt="right-arrow" />
+              <img src="/arrow.svg" alt="right-arrow" />
             </button>
           </>
         )}
