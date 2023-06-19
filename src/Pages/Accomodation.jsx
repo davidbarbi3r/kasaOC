@@ -1,3 +1,4 @@
+import './Accomodation.css'
 import React from 'react'
 import data from "../assets/data.json"
 import { useLocation } from 'react-router-dom'
@@ -14,29 +15,31 @@ export default function Accomodation() {
   }
 
   const rating = new Array(5)
-  .fill(<img src='../assets/full-start.svg'/>, 0, currentAccomodation.rating)
-  .fill(<img src='../assets/full-start.svg'/>, currentAccomodation.rating, 5)
+  .fill(<img src='/src/assets/full-star.svg'/>, 0, currentAccomodation.rating)
+  .fill(<img src='/src/assets/empty-star.svg'/>, currentAccomodation.rating, 5)
 
   console.log(rating)
   return (
     <div className='accomodation-container'>
       <Carroussel images={currentAccomodation.pictures}/>
-      <div>
-        <div>
-          <h1>{currentAccomodation.title}</h1>
-          <p>{currentAccomodation.location}</p>
-          <div>{currentAccomodation.tags.map((item, index) => {
-            return <span key={index}>{item}</span>})} 
+      <div className='accomodation-details'>
+        <div className='accomodation-highlight'>
+          <div className='accomodation-essentials'>
+            <h1>{currentAccomodation.title}</h1>
+            <p>{currentAccomodation.location}</p>
+            <div>{currentAccomodation.tags.map((item, index) => {
+              return <span key={index}>{item}</span>})} 
+            </div>
+          </div>
+          <div className='accomodation-host-container'>
+            <div className='accomodation-host'>
+              <p>{currentAccomodation.host.name}</p>
+              <img src={currentAccomodation.host.picture} alt={currentAccomodation.host.name}/>
+            </div>
+            <span>{rating}</span>
           </div>
         </div>
-        <div>
-          <div>
-            <p>{currentAccomodation.host.name}</p>
-            <img src={currentAccomodation.host.picture} alt={currentAccomodation.host.name}/>
-          </div>
-          <p>i</p>
-        </div>
-        <div>
+        <div className='description-container'>
           <Dropdown title='Description' text={currentAccomodation.description}/>
           <Dropdown title='Equipements' text={currentAccomodation.equipments} isEquipments={true}/>
         </div>

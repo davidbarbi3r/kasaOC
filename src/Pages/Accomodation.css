@@ -1,0 +1,125 @@
+.accomodation-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.accomodation-highlight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.accomodation-highlight h1 {
+    font-size: 36px;
+}
+
+.accomodation-highlight p {
+    font-size: 18px;
+}
+
+.accomodation-essentials span {
+    background-color: #ff6060;
+    color: white;
+    font-size: 14px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+
+.accomodation-host {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.accomodation-host img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.accomodation-host p {
+    font-size: 18px;
+    width: 100px;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.accomodation-host-container >span >img {
+    margin-left: 0.5rem;
+} 
+
+.description-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.description-container >div {
+    width: 48%;
+}
+
+@media (max-width: 600px) {
+    .accomodation-container {
+        padding: 1rem;
+    }
+
+    .accomodation-highlight {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .accomodation-highlight h1 {
+        font-size: 18px;
+    }
+
+    .accomodation-highlight p {
+        font-size: 14px;
+    }
+
+    .accomodation-essentials span {
+        font-size: 10px;
+    }
+
+    .accomodation-essentials>span>img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .accomodation-host {
+        margin-bottom: 0;
+    }
+
+    .accomodation-host p {
+        font-size: 12px;
+    }
+
+    .accomodation-host img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .accomodation-host-container {
+        width: 100%;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .description-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .description-container >div {
+        width: 100%;
+    }
+}
+    
