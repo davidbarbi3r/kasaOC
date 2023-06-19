@@ -5,16 +5,15 @@
 
 .cards-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    place-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
     max-width: 1240px;
     background-color: #F7F7F7;
     border-radius: 25px;
     padding: 2rem;
     margin: 0 2rem;
     margin-bottom: 2rem;
-    flex-wrap: wrap;
 }
 
 .card-resizer {
@@ -22,4 +21,20 @@
     padding: 5px;
     margin: -5px;
     margin-top: 1em;
+}
+
+@media (max-width: 600px) {
+    .cards-container {
+        padding: 0;
+        margin: 0 1rem;
+        background-color: white;
+        gap: 1rem;
+    }
+
+    .card-resizer {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        margin-top: 1em;
+    }
 }

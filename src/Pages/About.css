@@ -1,6 +1,7 @@
 .about {
     max-width: 1240px;
     margin: 0 auto;
+    padding: 2rem;
 }
 
 .dropdown-items {
@@ -13,8 +14,11 @@
 }
 
 @media screen and (max-width: 600px) {
+    .about {
+        padding: 1rem;
+    }
+        
     .dropdown-items {
-        margin: 0 20px;
         margin-bottom: 5rem;
     }
 }

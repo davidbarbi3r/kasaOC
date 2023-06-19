@@ -22,3 +22,21 @@
     text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+    .navbar-container {
+        padding: 1rem;
+    }
+    
+    .navbar-container ul li {
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+
+    .navbar-container img {
+        height: 34px;
+    }
+    .navbar-container img:first-child {
+        height:44px;
+    }
+}
+

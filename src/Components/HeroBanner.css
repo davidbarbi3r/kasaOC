@@ -28,8 +28,20 @@
     place-content: center;
     margin: auto;
     z-index: 1;
+    font-size: 48px;
+    font-weight: 500;
 }
 
 .hero-container.about {
     background-image:url('/src/assets/kalen-emsley.jpg');
+}
+
+@media (max-width: 600px) {
+    .hero-container {
+        margin: 1rem;
+    }
+
+    .hero-container h2 {
+        font-size: 24px;
+    }
 }

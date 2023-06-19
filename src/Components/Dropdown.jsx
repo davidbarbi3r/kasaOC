@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 
 function Dropdown (props) {
     const [open, setOpen] = useState(false)
-    console.log(props.text)
 
     return (
         <div className='dropdown-container' onClick={() => setOpen((prev) => !prev)}>
@@ -19,7 +18,7 @@ function Dropdown (props) {
                 </ul> : open && <div><p>{props.text}</p></div>
             }
         </div>
-  )
+    )
 }
 
 export default Dropdown

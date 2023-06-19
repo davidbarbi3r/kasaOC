@@ -10,6 +10,8 @@
     padding: 8px;
     text-align: left;
     margin: 0;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .dropdown-container img {
@@ -44,5 +46,13 @@
 @media screen and (max-width: 600px) {
     .dropdown-container {
         width: 100%;
+    }
+
+    .dropdown-container h3 {
+        font-size: 13px;
+    }
+
+    .dropdown-container p {
+        font-size: 12px;
     }
 }
