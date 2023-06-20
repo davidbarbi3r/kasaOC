@@ -1,7 +1,6 @@
 import './Home.css'
 import React, { useEffect, useState } from "react";
 import HeroBanner from "../Components/HeroBanner";
-// import data from '../assets/data.json'
 import Card from '../Components/Card';
 
 export default function Home () {
