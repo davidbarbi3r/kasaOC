@@ -9,7 +9,7 @@ import Carroussel from '../Components/Carroussel'
 export default function Accomodation() {
   const {pathname} = useLocation()
   const [currentAccomodation, setCurrentAccomodation] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true);
   
   useEffect(() => {
     setLoading(true)
@@ -33,19 +33,19 @@ export default function Accomodation() {
         console.log(error)
         setLoading(false)
     })
-}, [pathname])
-
-  if (!currentAccomodation) {
-    return <NoMatch/>
-  }
-
-  const rating = new Array(5)
-  .fill(<img src='/full-star.svg'/>, 0, currentAccomodation.rating)
-  .fill(<img src='/empty-star.svg'/>, currentAccomodation.rating, 5)
-
+  }, [pathname])
+  
   if (loading) {
     return <div className='loading'>Loading...</div>
   }
+  
+  if (!currentAccomodation) {
+    return <NoMatch />;
+  }
+  
+    const rating = new Array(5)
+    .fill(<img src='/full-star.svg'/>, 0, currentAccomodation.rating)
+    .fill(<img src='/empty-star.svg'/>, currentAccomodation.rating, 5)
 
   return (
     <div className='accomodation-container'>

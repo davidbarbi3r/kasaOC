@@ -6,33 +6,32 @@ import Card from '../Components/Card';
 
 export default function Home () {
     const [data, setData] = useState([])
-    const [loading, setLoading] = useState(false)
-    console.log(data)
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        setLoading(true)
-        fetch('https://sea-lion-app-d9i46.ondigitalocean.app/api/accomodations', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'authorization': 'Bearer ' + import.meta.env.VITE_API_TOKEN
-            }
+      setLoading(true);
+      fetch("https://sea-lion-app-d9i46.ondigitalocean.app/api/accomodations", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: "Bearer " + import.meta.env.VITE_API_TOKEN,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const accomodations = data.data.map((accomodation) => {
+            return accomodation.attributes.data;
+          });
+          console.log(accomodations);
+          setData(accomodations);
+          setLoading(false);
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.data[0].attributes)
-            // grab the attributes from the data
-            const accomodations = data.data.map((accomodation) => {
-                return accomodation.attributes.data
-            })
-            console.log(accomodations)
-            setData(accomodations)
-            setLoading(false)
-        })
-        .catch(error => {
-            console.log(error)
-            setLoading(false)
-        })
-    }, [])
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+    }, []);
+    
     return (
     <div className="home-container">
         <HeroBanner 
