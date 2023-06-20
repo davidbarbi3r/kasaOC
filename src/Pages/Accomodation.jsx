@@ -1,6 +1,6 @@
 import './Accomodation.css'
 import React, {useEffect, useState} from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import NoMatch from '../Pages/NoMatch'
 import Dropdown from '../Components/Dropdown'
 import Carroussel from '../Components/Carroussel'
@@ -9,6 +9,7 @@ export default function Accomodation() {
   const {pathname} = useLocation()
   const [currentAccomodation, setCurrentAccomodation] = useState(null)
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate()
   
   useEffect(() => {
     setLoading(true)
@@ -38,8 +39,8 @@ export default function Accomodation() {
     return <div className='loading'>Loading...</div>
   }
   
-  if (!currentAccomodation) {
-    return <NoMatch />;
+  if (!currentAccomodation && !loading) {
+    navigate('/404');
   }
   
     const rating = new Array(5)
