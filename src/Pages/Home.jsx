@@ -1,11 +1,38 @@
 import './Home.css'
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeroBanner from "../Components/HeroBanner";
-import data from '../assets/data.json'
+// import data from '../assets/data.json'
 import Card from '../Components/Card';
 
 export default function Home () {
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(false)
     console.log(data)
+    useEffect(() => {
+        setLoading(true)
+        fetch('https://sea-lion-app-d9i46.ondigitalocean.app/api/accomodations', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + import.meta.env.VITE_API_TOKEN
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.data[0].attributes)
+            // grab the attributes from the data
+            const accomodations = data.data.map((accomodation) => {
+                return accomodation.attributes.data
+            })
+            console.log(accomodations)
+            setData(accomodations)
+            setLoading(false)
+        })
+        .catch(error => {
+            console.log(error)
+            setLoading(false)
+        })
+    }, [])
     return (
     <div className="home-container">
         <HeroBanner 
@@ -13,7 +40,8 @@ export default function Home () {
             about={false}
         />
         <div className='cards-container'>
-            {data.map((card) => {
+            {loading && <div className='loading'>Loading...</div>}
+            {!loading && data.map((card) => {
                 return (
                     <div key={card.id} className='card-resizer'>
                         <Card card={card}/> 

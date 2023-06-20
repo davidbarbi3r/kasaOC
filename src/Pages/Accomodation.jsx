@@ -1,6 +1,6 @@
 import './Accomodation.css'
-import React from 'react'
-import data from "../assets/data.json"
+import React, {useEffect, useState} from 'react'
+// import data from "../assets/data.json"
 import { useLocation } from 'react-router-dom'
 import NoMatch from '../Pages/NoMatch'
 import Dropdown from '../Components/Dropdown'
@@ -8,7 +8,32 @@ import Carroussel from '../Components/Carroussel'
 
 export default function Accomodation() {
   const {pathname} = useLocation()
-  const currentAccomodation = data.filter((accomodation) => "/" + accomodation.id === pathname )[0]
+  const [currentAccomodation, setCurrentAccomodation] = useState(null)
+  const [loading, setLoading] = useState(false)
+  
+  useEffect(() => {
+    setLoading(true)
+    fetch('https://sea-lion-app-d9i46.ondigitalocean.app/api/accomodations', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer ' + import.meta.env.VITE_API_TOKEN
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.data[0].attributes)
+        const accomodation = data.data.filter((accomodation) => {
+            return accomodation.attributes.data.id === pathname.split('/')[1]
+        })
+        setCurrentAccomodation(accomodation[0].attributes.data)
+        setLoading(false)
+    })
+    .catch(error => {
+        console.log(error)
+        setLoading(false)
+    })
+}, [pathname])
 
   if (!currentAccomodation) {
     return <NoMatch/>
@@ -17,6 +42,10 @@ export default function Accomodation() {
   const rating = new Array(5)
   .fill(<img src='/full-star.svg'/>, 0, currentAccomodation.rating)
   .fill(<img src='/empty-star.svg'/>, currentAccomodation.rating, 5)
+
+  if (loading) {
+    return <div className='loading'>Loading...</div>
+  }
 
   return (
     <div className='accomodation-container'>
