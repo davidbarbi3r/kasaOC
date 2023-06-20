@@ -22,7 +22,6 @@ export default function Accomodation() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data.data[0].attributes)
         const accomodation = data.data.filter((accomodation) => {
             return accomodation.attributes.data.id === pathname.split('/')[1]
         })
@@ -43,9 +42,13 @@ export default function Accomodation() {
     navigate('/404');
   }
   
-    const rating = new Array(5)
-    .fill(<img src='/full-star.svg'/>, 0, currentAccomodation.rating)
-    .fill(<img src='/empty-star.svg'/>, currentAccomodation.rating, 5)
+  const rating = new Array(5).fill(null).map((_, index) => (
+    <img
+      src={index < currentAccomodation.rating ? '/full-star.svg' : '/empty-star.svg'}
+      alt={`star-${index}`}
+      key={`star-${index}`}
+    />
+  ));
 
   return (
     <div className='accomodation-container'>
