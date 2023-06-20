@@ -1,38 +1,38 @@
 import './Accomodation.css'
 import React, {useEffect, useState} from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import NoMatch from '../Pages/NoMatch'
+import { useLocation, useNavigate } from "react-router-dom";
 import Dropdown from '../Components/Dropdown'
 import Carroussel from '../Components/Carroussel'
+import { useContentful } from "../hook/useContentful";
 
 export default function Accomodation() {
   const {pathname} = useLocation()
   const [currentAccomodation, setCurrentAccomodation] = useState(null)
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate()
+
+  const client = useContentful();
   
   useEffect(() => {
-    setLoading(true)
-    fetch('https://sea-lion-app-d9i46.ondigitalocean.app/api/accomodations', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'authorization': 'Bearer ' + import.meta.env.VITE_API_TOKEN
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const accomodation = data.data.filter((accomodation) => {
-            return accomodation.attributes.data.id === pathname.split('/')[1]
-        })
-        setCurrentAccomodation(accomodation[0].attributes.data)
-        setLoading(false)
-    })
-    .catch(error => {
-        console.log(error)
-        setLoading(false)
-    })
-  }, [pathname])
+    if (client) {
+      setLoading(true)
+      client.getEntries({content_type: "accomodation"})
+      .then((response) => {
+          const accomodations = response.items.map((item) => {
+              return item.fields.data
+          })
+          const currentAccomodation = accomodations.find((item) => {
+            return item.id === pathname.slice(1)
+          })
+          setCurrentAccomodation(currentAccomodation)
+          setLoading(false)
+      })
+      .catch((error) => {
+          console.log(error)
+          setLoading(false)
+      })
+    }
+  }, []);
   
   if (loading) {
     return <div className='loading'>Loading...</div>

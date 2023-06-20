@@ -2,33 +2,29 @@ import './Home.css'
 import React, { useEffect, useState } from "react";
 import HeroBanner from "../Components/HeroBanner";
 import Card from '../Components/Card';
+import { useContentful } from '../hook/useContentful';
 
 export default function Home () {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const client = useContentful();
 
     useEffect(() => {
-      setLoading(true);
-      fetch("https://sea-lion-app-d9i46.ondigitalocean.app/api/accomodations", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: "Bearer " + import.meta.env.VITE_API_TOKEN,
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          const accomodations = data.data.map((accomodation) => {
-            return accomodation.attributes.data;
-          });
-          console.log(accomodations);
-          setData(accomodations);
-          setLoading(false);
+      if (client) {
+        setLoading(true)
+        client.getEntries({content_type: "accomodation"})
+        .then((response) => {
+            const accomodations = response.items.map((item) => {
+                return item.fields.data
+            })
+            setData(accomodations)
+            setLoading(false)
         })
         .catch((error) => {
-          console.log(error);
-          setLoading(false);
-        });
+            console.log(error)
+            setLoading(false)
+        })
+      }
     }, []);
     
     return (
