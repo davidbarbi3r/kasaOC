@@ -19,9 +19,9 @@ export default function Accomodation() {
     <div className='accomodation-container'>
       <Carroussel images={currentAccomodation.pictures}/>
       <div className='accomodation-details'>
-        <div className='accomodation-highlight'>
+        <section className='accomodation-highlight'>
           <div className='accomodation-essentials'>
-            <h1>{currentAccomodation.title}</h1>
+            <h2>{currentAccomodation.title}</h2>
             <p>{currentAccomodation.location}</p>
             <div>{currentAccomodation.tags.map((item, index) => {
               return <span key={index}>{item}</span>})} 
@@ -34,11 +34,11 @@ export default function Accomodation() {
             </div>
             <Rating rating={currentAccomodation.rating} />
           </div>
-        </div>
-        <div className='description-container'>
+        </section>
+        <section className='description-container'>
           <Dropdown title='Description' text={currentAccomodation.description}/>
           <Dropdown title='Equipements' text={currentAccomodation.equipments} isEquipments={true}/>
-        </div>
+        </section>
       </div>
     </div>
   )

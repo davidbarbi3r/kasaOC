@@ -5,14 +5,14 @@ import data from '../assets/data.json'
 import Card from '../Components/Card';
 
 export default function Home () {
-    console.log(data)
+
     return (
     <div className="home-container">
         <HeroBanner 
             text='Chez vous, partout et ailleurs'
             about={false}
         />
-        <div className='cards-container'>
+        <section className='cards-container'>
             {data.map((card) => {
                 return (
                     <div key={card.id} className='card-resizer'>
@@ -20,7 +20,7 @@ export default function Home () {
                     </div>
                 )
             })}
-        </div>
+        </section>
     </div>
     )
 }

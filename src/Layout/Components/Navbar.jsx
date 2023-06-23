@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
     <header className="navbar-container">
+      <h1 className="navbar-title">Kasa</h1>
       <Link to="/">
         <div className="navbar-logo">
           <img src="/logo-K.svg" />
