@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 import NoMatch from '../Pages/NoMatch'
 import Dropdown from '../Components/Dropdown'
 import Carroussel from '../Components/Carroussel'
+import Rating from '../Components/Rating'
 
 export default function Accomodation() {
   const {pathname} = useLocation()
@@ -13,10 +14,6 @@ export default function Accomodation() {
   if (!currentAccomodation) {
     return <NoMatch/>
   }
-
-  const rating = new Array(5)
-  .fill(<img src='/full-star.svg'/>, 0, currentAccomodation.rating)
-  .fill(<img src='/empty-star.svg'/>, currentAccomodation.rating, 5)
 
   return (
     <div className='accomodation-container'>
@@ -35,7 +32,7 @@ export default function Accomodation() {
               <p>{currentAccomodation.host.name}</p>
               <img src={currentAccomodation.host.picture} alt={currentAccomodation.host.name}/>
             </div>
-            <span>{rating}</span>
+            <Rating rating={currentAccomodation.rating} />
           </div>
         </div>
         <div className='description-container'>
