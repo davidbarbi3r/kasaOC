@@ -38,6 +38,9 @@ function Carroussel(props) {
             >
               <img src="/arrow.svg" alt="left-arrow" />
             </button>
+            <p className="carroussel-num">
+              {currentImage + 1}/{props.images.length}
+            </p>
             <button
               className="right-arrow"
               onClick={() => handleRightArrowClick()}
