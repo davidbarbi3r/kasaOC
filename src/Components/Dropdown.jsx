@@ -5,17 +5,17 @@ function Dropdown (props) {
     const [open, setOpen] = useState(false)
 
     return (
-        <div className='dropdown-container' onClick={() => setOpen((prev) => !prev)}>
+        <div className={`dropdown-container ${open ? 'open' : ''}`} onClick={() => setOpen((prev) => !prev)}>
             <h3>
                 {props.title}
                 <img src="/arrow.svg" alt="arrow" className={open ? "rotate" : ""}/>
             </h3>
-            {open && props.isEquipments ?
+            {props.isEquipments ?
                 <ul className='dropdown-content'>
                     {props.text.map((item, index) => {
-                        return <p key={index}>{item}</p>})
+                        return <li key={index}>{item}</li>})
                     }
-                </ul> : open && <div><p>{props.text}</p></div>
+                </ul> : <div className='dropdown-content'><p>{props.text}</p></div>
             }
         </div>
     )
