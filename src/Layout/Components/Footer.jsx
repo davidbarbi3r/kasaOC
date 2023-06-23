@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <div className='footer-container'>
+    <footer className='footer-container'>
         <Link to="/">
             <div className="navbar-logo">
                 <img src="/logo-K-white.svg" />
@@ -16,6 +16,6 @@ export default function Footer() {
         <p>
             © 2020 Kasa. All rights reserved
         </p>
-    </div>
+    </footer>
   )
 }
