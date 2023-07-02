@@ -13,7 +13,7 @@
   }
   
   .dropdown-container.open .dropdown-content {
-    max-height: 500px; /* Adjust the value based on your content */
+    max-height: 500px; 
   }
 
 .dropdown-container h3 {
